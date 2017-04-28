@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Follower_request resource:
+  # CREATE
+  get "/follower_requests/new", :controller => "follower_requests", :action => "new"
+  post "/create_follower_request", :controller => "follower_requests", :action => "create"
+
+  # READ
+  get "/follower_requests", :controller => "follower_requests", :action => "index"
+  get "/follower_requests/:id", :controller => "follower_requests", :action => "show"
+
+  # UPDATE
+  get "/follower_requests/:id/edit", :controller => "follower_requests", :action => "edit"
+  post "/update_follower_request/:id", :controller => "follower_requests", :action => "update"
+
+  # DELETE
+  get "/delete_follower_request/:id", :controller => "follower_requests", :action => "destroy"
+  #------------------------------
+
   # Routes for the Like resource:
   # CREATE
   get "/likes/new", :controller => "likes", :action => "new"
