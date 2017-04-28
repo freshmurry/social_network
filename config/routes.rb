@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "photos#index"
   # Routes for the Follower_request resource:
   # CREATE
   get "/follower_requests/new", :controller => "follower_requests", :action => "new"
