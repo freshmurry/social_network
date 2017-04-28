@@ -16,8 +16,20 @@
 
       <% @follower_requests.each do |follower_request| %>
       <tr>
-        <td><%= follower_request.sender.email %></td>
-        <td><%= follower_request.recipient.email %></td>
+        <td>
+          <% if follower_request.sender.present? %>
+            <a href="/users/<%= follower_request.sender.id %>">
+              <%= follower_request.sender.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if follower_request.recipient.present? %>
+            <a href="/users/<%= follower_request.recipient.id %>">
+              <%= follower_request.recipient.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/follower_requests/<%= follower_request.id %>" class="btn btn-primary">Show</a>
           <a href="/follower_requests/<%= follower_request.id %>/edit" class="btn btn-warning">Edit</a>
