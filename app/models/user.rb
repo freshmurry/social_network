@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :follower_requests,
+             :foreign_key => "recipient_id",
+             :dependent => :destroy
+
   has_many   :received_follower_requests,
              :class_name => "FollowerRequest",
              :foreign_key => "sender_id",
